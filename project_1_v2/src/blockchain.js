@@ -71,8 +71,15 @@ class Blockchain {
             block.time = new Date().getTime().toString().slice(0,-3);
             block.height = self.height = self.chain.length;
             block.hash = SHA256(JSON.stringify(block)).toString();
+
             self.chain.push(block);
-            resolve(block);
+
+            const validateChainErrors = await this.validateChain();
+            if(validateChainErrors.length > 0) {
+                reject('chain is not valid, check the /validateChain');
+            } else {
+                resolve(block);
+            }
         });
     }
 
@@ -213,7 +220,11 @@ class Blockchain {
                     errorLog.push(`Invalid block ${block.hash}`);
                 }
             }
-            resolve(errorLog);
+            if(errorLog.length > 0) {
+                reject(errorLog)
+            } else {
+                resolve(errorLog);
+            }
         });
     }
 

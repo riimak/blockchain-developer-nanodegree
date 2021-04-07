@@ -61,7 +61,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"address\": \"mvft1Fonpfr7dhWNqewTKB9E4U6NDgGR2z\",\n    \"message\": \"mvft1Fonpfr7dhWNqewTKB9E4U6NDgGR2z:1617759631:starRegistry\",\n    \"signature\": \"Hwd4hEJfLXCocSYWjh+Mn5+0xkk0bSpROKxLBzvgctOtPiVucN4CQktlQj2QyGqqbTJ14FgBl8uvV/8SQrH/y7w=\",\n    \"star\": {\n        \"whatthe\": \"shit 100002\"\n    }\n}",
+					"raw": "{\n    \"address\": \"mvft1Fonpfr7dhWNqewTKB9E4U6NDgGR2z\",\n    \"message\": \"mvft1Fonpfr7dhWNqewTKB9E4U6NDgGR2z:1617786146:starRegistry\",\n    \"signature\": \"IF/EPhqlf277yrlX1JCaUvKk9Q3LA/Dk6SVEmHuHyLQpGOeSwsUjQMViNkkAjy5HskaRaVNt39fACcoO+W07a/U=\",\n    \"star\": {\n        \"dec\": \"68° 52' 56.9\",\n        \"ra\": \"16h 29m 1.0s\",\n        \"story\": \"Testing the story 4\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -97,6 +97,25 @@
 					"path": [
 						"blocks",
 						"mvft1Fonpfr7dhWNqewTKB9E4U6NDgGR2z"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validate chain",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/validateChain",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"validateChain"
 					]
 				}
 			},
