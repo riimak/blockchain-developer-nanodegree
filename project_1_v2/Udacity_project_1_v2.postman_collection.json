@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "617992a9-5e26-4ab6-b083-08364f496f27",
+		"name": "Udacity_project_1_v2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get genesis block",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/block/height/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"block",
+						"height",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "request validation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"address\": \"mvft1Fonpfr7dhWNqewTKB9E4U6NDgGR2z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/requestValidation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"requestValidation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "submitStar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"address\": \"mvft1Fonpfr7dhWNqewTKB9E4U6NDgGR2z\",\n    \"message\": \"mvft1Fonpfr7dhWNqewTKB9E4U6NDgGR2z:1617759631:starRegistry\",\n    \"signature\": \"Hwd4hEJfLXCocSYWjh+Mn5+0xkk0bSpROKxLBzvgctOtPiVucN4CQktlQj2QyGqqbTJ14FgBl8uvV/8SQrH/y7w=\",\n    \"star\": {\n        \"whatthe\": \"shit 100002\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/submitstar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"submitstar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get stars owned by address",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/blocks/mvft1Fonpfr7dhWNqewTKB9E4U6NDgGR2z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"blocks",
+						"mvft1Fonpfr7dhWNqewTKB9E4U6NDgGR2z"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
