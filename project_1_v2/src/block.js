@@ -44,12 +44,11 @@ class Block {
             const calculatedBlockHash = SHA256(JSON.stringify({ ...self, hash: null })).toString();
             // Comparing if the hashes changed
             const isBlockValid = calculatedBlockHash === currentBlockHash;
-            // Returning the Block is not valid
+            // Returning is Block valid
             if(!isBlockValid){
-                reject('Block is not valid');
+                resolve(false);
             } else {
-                // Returning the Block is valid
-                resolve('Block is valid');
+                resolve(true);
             }
         });
     }
