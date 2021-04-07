@@ -132,8 +132,7 @@ class Blockchain {
             }
 
             // add block to chain & resolve
-            let block = new BlockClass.Block({ star });
-            block.owner = address;
+            let block = new BlockClass.Block({ owner: address, star: star });
             block = await self._addBlock(block)
             resolve(block);       
         });
@@ -147,13 +146,9 @@ class Blockchain {
      */
     getBlockByHash(hash) {
         let self = this;
-        return new Promise((resolve, reject) => {
-            const filter = self.chain.filter(block => block.hash === hash);
-            if(filter.length > 0){
-                resolve(filter[0])
-            } else {
-                reject('Block not found');
-            }
+        return new Promise(resolve => {
+            const block = self.chain.find(block => block.hash === hash);
+            resolve(block);
          });
     }
 
@@ -190,8 +185,8 @@ class Blockchain {
             }
             stars = await Promise.all(
                 blocks.map(async block => {
-                  let blockData = await block.getBData();
-                  return {owner: block.owner, ...blockData};
+                  const blockData = await block.getBData();
+                  return blockData;
                 })
             );
             resolve(stars);

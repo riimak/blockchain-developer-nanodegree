@@ -119,9 +119,20 @@ class BlockchainController {
         });
     }
 
-    // Endpoint to validate chain (GET Endpoint)
+    // Endpoint to check for validate chain errors (GET Endpoint)
     validateChain() {
-        this.app.get("/validateChain", async (req, res) => res.status(200).json(await this.blockchain.validateChain()));
+        this.app.get("/validateChain", async (req, res) => {
+            try {
+                const validateChainErrors = await this.blockchain.validateChain();
+                if(validateChainErrors){
+                    return res.status(200).json(validateChainErrors);
+                } else {
+                    return res.status(404).send("Errors Not Found!");
+                }
+            } catch (error) {
+                return res.status(500).send("An error happened!");
+            }
+        });
     }
 
 }
